@@ -78,6 +78,12 @@ public class TC_08_Wait_Implicit_Explicit {
         explicitWait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//input[@type='file']")));
         driver.findElement(By.xpath("//input[@type='file']")).sendKeys(path+"/src/test/Image/rose.jpg");
 
+        explicitWait.until(ExpectedConditions.visibilityOfElementLocated(By.id("rowUploadSuccess-showFiles")));
+
+        driver.findElement(By.id("rowUploadSuccess-showFiles")).click();
+
+        explicitWait.until(ExpectedConditions.visibilityOfElementLocated(By.id("rowFolder-info-delete")));
+        Assert.assertTrue(driver.findElement(By.id("rowFolder-info-delete")).isDisplayed());
     }
 
 
